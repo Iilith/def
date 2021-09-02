@@ -7,6 +7,7 @@ static short hidden = 0;
 static struct list_head *prev_module;
 
 unsigned long *__sysc_table;
+typedef asmlinkage long (*t_syscall)(const struct pt_regs *);
 static t_syscall orig_kill;
 
 unsigned long *ret_sysc_table(void)
